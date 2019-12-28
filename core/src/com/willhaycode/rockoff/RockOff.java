@@ -4,10 +4,7 @@ import java.net.URISyntaxException;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.willhaycode.rockoff.lipwig.Lipwig;
+import com.willhaycode.rockoff.lipwig.Host;
 
 public class RockOff extends ApplicationAdapter {
 
@@ -15,8 +12,7 @@ public class RockOff extends ApplicationAdapter {
 	public void create() {
 		Gdx.app.log("Lipwig", "Launching Lipwig Connection");
 		try {
-			Lipwig lw = new Lipwig("ws://localhost:8080");
-			lw.connect();
+			Host host = new Host("ws://localhost:8080");
 			Gdx.app.log("Lipwig", "Connection Launched");
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
