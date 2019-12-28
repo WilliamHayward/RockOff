@@ -46,20 +46,25 @@ public class Host extends WebSocketClient {
             JSONArray data = (JSONArray) messageJSON.get((Object) "data");
             String sender = messageJSON.get((Object) "sender").toString();
             JSONArray recipient = (JSONArray) messageJSON.get((Object) "recipient");
-            Gdx.app.log("Event", event);
-
-            if (event.equals("created")) {
-                Gdx.app.log("Created", "Now");
-                
-                String code = data.get(0).toString();
-                this.id = code;
-                Gdx.app.log("Code!", code);
-            }
-
+            handle(event, data, sender, recipient);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    private void handle(String event, JSONArray data, String sender, JSONArray recipient) {
+
+        Gdx.app.log("Event", event);
+
+        if (event.equals("created")) {
+            Gdx.app.log("Created", "Now");
+            
+            String code = data.get(0).toString();
+            this.id = code;
+            Gdx.app.log("Code!", code);
+        }
+        return;
     }
 
     @Override
