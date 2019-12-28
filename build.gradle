@@ -10,7 +10,6 @@ buildscript {
         google()
     }
     dependencies {
-        
 
     }
 }
@@ -43,6 +42,9 @@ project(":desktop") {
 
     dependencies {
         implementation project(":core")
+
+        implementation "org.java-websocket:Java-WebSocket:1.4.0"
+        implementation 'com.googlecode.json-simple:json-simple:1.1.1'
         api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
@@ -54,8 +56,13 @@ project(":core") {
     apply plugin: "java-library"
 
 
+
+
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
+        implementation "org.java-websocket:Java-WebSocket:1.4.0"
+        implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+
         
     }
 }
