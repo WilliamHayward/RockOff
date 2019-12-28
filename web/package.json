@@ -1,0 +1,19 @@
+{
+  "name": "rockoff",
+  "version": "0.0.1",
+  "description": "Paper, Scissors, Rock Party Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliamHayward/RockOff.git"
+  },
+  "author": "William Hayward",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WilliamHayward/RockOff/issues"
+  },
+  "homepage": "https://github.com/WilliamHayward/RockOff#readme"
+}

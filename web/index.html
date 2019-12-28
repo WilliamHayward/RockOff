@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="js/lipwig.1.1.0.min.js"></script>
+        <script src="js/portal.js" defer></script>
+    </head>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #content {
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0px;
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <body>
+        <div id="portal">
+                Code: <input type="text" id="txtCode"/><br/>
+                <input type="button" id="btnJoin" value="Join"/>
+        </div>
+        <iframe id="content"></iframe>
+    </body>
+</html>

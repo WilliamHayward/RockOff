@@ -63,6 +63,15 @@ public class Host extends WebSocketClient {
             String code = data.get(0).toString();
             this.id = code;
             Gdx.app.log("Code!", code);
+        } else if (event.equals("Hello")) {
+            int count = Integer.parseInt(data.get(0).toString());
+            Gdx.app.log("Count", String.valueOf(count));
+            JSONArray newData = new JSONArray();
+            newData.add(count + 1);
+
+            JSONArray newRecipient = new JSONArray();
+            newRecipient.add(sender);
+            this.send("Hello", newData, newRecipient);
         }
         return;
     }
