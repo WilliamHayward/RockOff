@@ -1,5 +1,5 @@
 package com.willhaycode.rockoff.lipwig;
 
-public class Player {
+public class Bot extends Player {
     
 }
