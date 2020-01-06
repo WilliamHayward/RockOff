@@ -29,6 +29,7 @@ public class Host extends WebSocketClient {
     }
 
     public void send(String event, JSONArray data, JSONArray recipient) {
+        //TODO: Move this to LibGDX JSON utility
         JSONObject message = new JSONObject();
         message.put("event", event);
         message.put("data", data);
