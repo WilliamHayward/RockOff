@@ -1,6 +1,7 @@
 var client;
 document.getElementById('btnJoin').onclick = function() {
     const code = document.getElementById('txtCode').value;
+    const name = document.getElementById('txtName').value;
     let location = 'ws';
     if (window.location.protocol === 'https') {
         location += 's';
@@ -8,7 +9,9 @@ document.getElementById('btnJoin').onclick = function() {
     host = window.location.hostname;
     host = 'localhost';
     location += '://' + host + ':8080';
-    client = Lipwig.join(location, code);
+    client = Lipwig.join(location, code, {
+        'name' : name
+    });
     client.on('joined', joined);
     client.on('Hello', hello);
 }
