@@ -1,10 +1,13 @@
 package com.willhaycode.rockoff.core;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.willhaycode.rockoff.lipwig.Host;
+import com.willhaycode.rockoff.ui.Image;
 import com.willhaycode.rockoff.ui.Label;
 
 public class RockOffStage extends Stage {
@@ -42,11 +45,12 @@ text.setFontScale(1f,1f);
     private void buildScreen() {
         switch (this.screen) {
             case CONNECTING:
-                LabelStyle textStyle = new LabelStyle();
-                textStyle.font = new BitmapFont();
-                //Label lblConnecting = new Label("Connecting to Lipwig...", textStyle);
-                //this.addActor(lblConnecting);
-                Label lblConnecting = new Label("Connecting to Lipwig...", (int) this.getWidth() / 2, (int) this.getHeight() / 2);
+                Texture txtreLogo = new Texture(Gdx.files.internal("Rock-Off-Logo.png"));
+                Image logo = new Image(txtreLogo, 0, 0);
+                logo.setWidth(this.getWidth(), true);
+                this.addActor(logo);
+                
+                Label lblConnecting = new Label("Connecting to Lipwig...", this.getWidth() / 2, 25);
                 this.addActor(lblConnecting);
             break;
             case LOBBY:

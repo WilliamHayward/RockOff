@@ -13,6 +13,8 @@ public class RockOff extends ApplicationAdapter {
 	public void create() {
 		this.stage = new RockOffStage(new ScreenViewport());
 		Gdx.input.setInputProcessor(this.stage);
+		Gdx.gl.glClearColor(0f/255f, 155f/255f, 119f/255f, 1);
+
 	}
 	public void resize (int width, int height) {
 		stage.getViewport().update(width, height, true);
