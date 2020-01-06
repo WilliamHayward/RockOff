@@ -57,6 +57,17 @@ public class Host extends WebSocketClient {
 
         Gdx.app.log("Event", event);
 
+        switch (event) {
+            case "created":
+                Gdx.app.log("Created", "Now");
+                
+                String code = data.get(0).toString();
+                this.id = code;
+                Gdx.app.log("Code!", code);
+            break;
+        }
+
+        /**
         if (event.equals("created")) {
             Gdx.app.log("Created", "Now");
             
@@ -71,8 +82,8 @@ public class Host extends WebSocketClient {
 
             JSONArray newRecipient = new JSONArray();
             newRecipient.add(sender);
-            this.send("Hello", newData, newRecipient);
-        }
+            //this.send("Hello", newData, newRecipient);
+        } */
         return;
     }
 
