@@ -1,7 +1,12 @@
 package com.willhaycode.rockoff.lipwig;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonReader;
+import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.JsonWriter;
 public class Message {
     private String event;
     private ArrayList<String> data;
@@ -17,6 +22,15 @@ public class Message {
 
     public Message(String event, ArrayList<String> data, ArrayList<String> recipient) {
         this(event, data, "", recipient);
+    }
+
+    public Message(String message) {
+        JsonReader reader = new JsonReader();
+        JsonValue jsonMessage = reader.parse(message);
+        this.event = jsonMessage.getString("event");
+        this.data = new ArrayList<>(Arrays.asList((jsonMessage.get("data").asStringArray())));
+        this.sender = jsonMessage.getString("sender");
+        this.recipient = new ArrayList<>(Arrays.asList((jsonMessage.get("recipient").asStringArray())));
     }
 
 	public String getEvent() {
@@ -51,5 +65,10 @@ public class Message {
         this.recipient = recipient;
     }
     
-    
+    @Override
+    public String toString() {
+        Json json = new Json();
+        json.setOutputType(JsonWriter.OutputType.json);
+        return json.toJson(this);
+    }
 }
