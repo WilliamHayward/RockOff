@@ -1,6 +1,5 @@
 package com.willhaycode.rockoff.bracket;
 
-import com.willhaycode.rockoff.lipwig.Bot;
 import com.willhaycode.rockoff.lipwig.Player;
 
 public class Pairing {
@@ -20,11 +19,11 @@ public class Pairing {
 
     public Pairing(Player player) {
         this.player1 = player;
-        this.player2 = new Bot();
+        //this.player2 = new Bot();
     }
     public Pairing(Pairing pairing) {
         this.player1 = pairing.getWinner();
-        this.player2 = new Bot();
+        //this.player2 = new Bot();
     }
 
     public Player getWinner() {

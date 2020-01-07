@@ -1,8 +1,6 @@
 package com.willhaycode.rockoff.bracket;
 
 import java.util.ArrayList;
-
-import com.willhaycode.rockoff.lipwig.Bot;
 import com.willhaycode.rockoff.lipwig.Player;
 
 public class Bracket {
@@ -11,7 +9,7 @@ public class Bracket {
         ArrayList<Player> playersFull = new ArrayList<>(players);
 
         if (playerCount % 2 == 1) {
-            playersFull.add(new Bot());
+            //playersFull.add(new Bot());
         }
 
         int round = 0;
