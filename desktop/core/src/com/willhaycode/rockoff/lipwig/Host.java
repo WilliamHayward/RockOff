@@ -11,6 +11,7 @@ import org.java_websocket.handshake.ServerHandshake;
 
 public class Host extends WebSocketClient {
     private String id = "";
+    private ArrayList<Player> players = new ArrayList<>();
     public Host(String server) throws URISyntaxException {
         super(new URI(server));
         this.connect();
@@ -48,9 +49,15 @@ public class Host extends WebSocketClient {
             case "created":
                 Gdx.app.log("Created", "Now");
                 
-                String code = data.get(0).toString();
+                String code = data.get(0);
                 this.id = code;
                 Gdx.app.log("Code!", code);
+            break;
+            case "joined":
+                String id = data.get(0);
+                String name = data.get(1);
+                Player player = new Player(this, id, name);
+                this.players.add(player);
             break;
         }
     }
