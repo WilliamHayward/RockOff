@@ -1,4 +1,4 @@
-package com.willhaycode.rockoff.core;
+package com.willhaycode.rockoff.ui;
 
 public enum Screen {
     CONNECTING,

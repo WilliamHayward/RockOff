@@ -5,15 +5,18 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.willhaycode.rockoff.core.Game;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
 public class Host extends WebSocketClient {
     private String id = "";
+    private Game game;
     private ArrayList<Player> players = new ArrayList<>();
-    public Host(String server) throws URISyntaxException {
+    public Host(Game game, String server) throws URISyntaxException {
         super(new URI(server));
+        this.game = game;
         this.connect();
     }
 
@@ -51,7 +54,8 @@ public class Host extends WebSocketClient {
                 
                 String code = data.get(0);
                 this.id = code;
-                Gdx.app.log("Code!", code);
+                this.game.startLobby(code);
+                Gdx.app.log("Room Code", code);
             break;
             case "joined":
                 String id = data.get(0);
