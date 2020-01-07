@@ -17,7 +17,7 @@ document.getElementById('btnJoin').onclick = function() {
 }
 
 function joined(id, name) {
-    client.send("Hello", 0);
+    client.send("start");
 }
 
 function hello(count) {

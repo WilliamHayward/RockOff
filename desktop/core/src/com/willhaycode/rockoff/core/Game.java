@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
@@ -16,11 +17,11 @@ import com.willhaycode.rockoff.ui.Screen;
 
 public class Game {
     private Host host = null;
-    private RockOffStage stage;
+    private Stage stage;
     private Screen screen = null;
     private HashMap<Screen, Group> screens;
     private LabelStyle lblStyle = new LabelStyle(new BitmapFont(), Color.WHITE);
-    public Game(RockOffStage stage) {
+    public Game(Stage stage) {
         this.stage = stage;
 
         initScreens();
@@ -71,11 +72,11 @@ public class Game {
         this.host = host;
     }
 
-    public RockOffStage getStage() {
+    public Stage getStage() {
         return this.stage;
     }
 
-    public void setStage(RockOffStage stage) {
+    public void setStage(Stage stage) {
         this.stage = stage;
     }
 

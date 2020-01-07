@@ -12,6 +12,7 @@ import org.java_websocket.handshake.ServerHandshake;
 
 public class Host extends WebSocketClient {
     private String id = "";
+    private Player vip = null;
     private Game game;
     private ArrayList<Player> players = new ArrayList<>();
     public Host(Game game, String server) throws URISyntaxException {
@@ -45,13 +46,11 @@ public class Host extends WebSocketClient {
         String event = message.getEvent();
         ArrayList<String> data = message.getData();
         String sender = message.getSender();
-        ArrayList<String> recipient = message.getRecipient();
         Gdx.app.log("Event", event);
 
         switch (event) {
             case "created":
                 Gdx.app.log("Created", "Now");
-                
                 String code = data.get(0);
                 this.id = code;
                 this.game.startLobby(code);
@@ -61,7 +60,17 @@ public class Host extends WebSocketClient {
                 String id = data.get(0);
                 String name = data.get(1);
                 Player player = new Player(this, id, name);
+                if (vip == null) {
+                    vip = player;
+                }
                 this.players.add(player);
+            break;
+            case "start":
+                if (vip.getId().equals(sender)) {
+                    Gdx.app.log("Start", "VIP");
+                } else {
+                    Gdx.app.log("Start", "NOT the VIP");
+                }
             break;
         }
     }
